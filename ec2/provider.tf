@@ -15,3 +15,12 @@ provider "aws" {
     profile = "terraform"
 }
 
+terraform {
+    backend "s3" {
+        bucket = "my-app-backend-17-05"
+        key = "tf/backend-state/example-ec2/tf-state"
+        region = "ap-south-1"
+        dynamodb_table = "my-app-locks"
+        encrypt = true
+    }
+}
